@@ -33,9 +33,9 @@ Examples:
 - [Azoma](https://www.uktech.news/ai/azoma-becomes-latest-ai-search-startup-to-secure-funding-20251205)
   raised pre-Series A funding for AI search visibility technology.
 
-## How Jet SEO Maps To The Market
+## How SEO Workflow Maps To The Market
 
-Jet SEO is a workflow engine for the content operations layer:
+SEO Workflow is a workflow engine for the content operations layer:
 
 1. Discover seed topics and exclude already-published keywords.
 2. Use Ahrefs data to validate search demand and difficulty.

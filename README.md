@@ -1,5 +1,5 @@
 <p align="center">
-  <strong>Jet SEO</strong>
+  <strong>SEO Workflow</strong>
 </p>
 
 <p align="center">
@@ -7,21 +7,21 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/Sethzy/jet-seo">GitHub</a>
+  <a href="https://github.com/Sethzy/SEO-Workflow">GitHub</a>
   ·
-  <a href="https://jet-seo-search-visibility-engine.vercel.app/jet-seo-search-visibility-engine.html">Portfolio artifact</a>
+  <a href="https://seo-workflow-artifact.vercel.app/seo-workflow.html">Portfolio artifact</a>
 </p>
 
 ---
 
-## Why Jet SEO Exists
+## Why SEO Workflow Exists
 
 Search marketing is changing from a keyword-and-blog workflow into a visibility
 operations problem. Brands now need to understand where they appear across
 Google, AI Overviews, ChatGPT-style answers, Perplexity-style research, and
 category comparison pages.
 
-Jet SEO is a machine-executable workflow pack for that world. It turns SEO work
+SEO Workflow is a machine-executable workflow pack for that world. It turns SEO work
 into a staged system:
 
 ```text
@@ -86,7 +86,7 @@ flowchart TD
 
 ## Execution Model
 
-Jet SEO uses a batch-then-advance model. It does not waterfall one keyword all
+SEO Workflow uses a batch-then-advance model. It does not waterfall one keyword all
 the way from research to publish while the rest of the queue stays untouched.
 
 Instead:
@@ -126,7 +126,7 @@ and [Scrunch AI](https://www.prnewswire.com/news-releases/scrunch-ai-raises-15-m
 are building around monitoring, content gaps, brand visibility, and agentic
 marketing workflows.
 
-Jet SEO is a public proof-of-work artifact for the operations layer of that
+SEO Workflow is a public proof-of-work artifact for the operations layer of that
 market: how research becomes briefs, content, internal links, and validated
 publish-ready output.
 
