@@ -1,0 +1,17 @@
+.DS_Store
+
+# Local agent/runtime state
+.claude/settings.local.json
+.mcp.json
+
+# Future generated outputs
+node_modules/
+.next/
+dist/
+coverage/
+*.log
+
+# Local secrets
+.env
+.env.*
+!.env.example
