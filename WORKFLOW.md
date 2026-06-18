@@ -1,4 +1,4 @@
-# Atlas SEO Content Workflow
+# SEO Content Workflow
 
 Machine-executable runbook for the Ahrefs-driven content pipeline. Claude Code reads this document and `MEMORY_STATE.md` — nothing else is needed to execute or resume the full workflow.
 
@@ -146,7 +146,7 @@ Exclusion loop: content/blog/*.mdx primaryKeywords → A.0 exclusion list → pr
 |-----------|---------|
 | `WORKFLOW.md` | This document — master runbook (static, never modified during execution) |
 | `MEMORY_STATE.md` | Execution checkpoint (written after every step) |
-| `.claude/agents/skills/atlas-seo.md` | Atlas SEO content generation skill (invoked at Step 8) |
+| `.claude/agents/skills/seo-content.md` | SEO content generation skill (invoked at Step 8) |
 | `docs/marketing/data/` | 8 CSV trackers (structured data layer) |
 | `docs/marketing/keywords/seeds.md` | Legacy seed keywords (read-only reference) |
 | `docs/marketing/keywords/prioritized.md` | Legacy prioritized list (read-only reference) |
@@ -158,7 +158,7 @@ Exclusion loop: content/blog/*.mdx primaryKeywords → A.0 exclusion list → pr
 ### 1.4 Prerequisites
 
 - Ahrefs Starter account ($29/month, 100 credits). Note: Content Gap and Site Explorer Top Pages (full export) require Ahrefs Lite ($129/month) or higher. This workflow is designed to work within Starter plan limitations.
-- Claude Code with skills: `/content-strategy`, `/atlas-seo`, `/programmatic-seo`
+- Claude Code with skills: `/content-strategy`, `/seo-content`, `/programmatic-seo`
 - Access to `docs/marketing/` and `content/blog/` directories
 - Node.js for running audit scripts (`npm run audit:blog`)
 
@@ -383,14 +383,14 @@ Additional blog category: `professional-knowledge` (professional workflows, know
 
 **Goal:** Discover new keyword opportunities through strategic research, then validate them with Ahrefs data.
 
-**Input:** Atlas product context, competitor landscape, existing published content (42 blog posts in `content/blog/`), existing seeds in `keywords/seeds.md`, and competitor domains.
+**Input:** Acme product context, competitor landscape, existing published content (42 blog posts in `content/blog/`), existing seeds in `keywords/seeds.md`, and competitor domains.
 
 **Output:** Populated `keyword-seeds.csv`, `keywords-validated.csv`, `serp-analysis.csv`, `competitor-keywords.csv`, and `ahrefs-exports.csv`.
 
 ### Step A.0: Discover New Seed Keywords via Strategic Research
 
 **Executor:** AGENT
-**Scope:** The entire Atlas keyword landscape — existing blog posts, competitor content, market trends, and audience needs.
+**Scope:** The entire Acme keyword landscape — existing blog posts, competitor content, market trends, and audience needs.
 **Action:**
 
 This step uses `/content-strategy` and deep web research to discover high-potential seed keywords that are NOT already covered by existing blog posts or existing seeds. This is the creative, strategic discovery step that feeds the rest of the pipeline.
@@ -425,7 +425,7 @@ This step uses `/content-strategy` and deep web research to discover high-potent
 **A.0.2 — Research new seed keywords using `/content-strategy`:**
 
 1. Call `/content-strategy` with input:
-   - Atlas product context: AI-powered knowledge workspace for researchers and knowledge workers (search, citation management, visual knowledge mapping, connected notes)
+   - Acme product context: AI-powered knowledge workspace for researchers and knowledge workers (search, citation management, visual knowledge mapping, connected notes)
    - The 5 primary competitor domains: `notebooklm.google.com`, `elicit.com`, `scite.ai`, `notion.so`, `obsidian.md`
    - The 4 content pillars (Section 3.2): AI Research Tools, Second Brain & PKM, NotebookLM Alternatives, Visual Knowledge
    - The exclusion list from A.0.1
@@ -440,7 +440,7 @@ This step uses `/content-strategy` and deep web research to discover high-potent
    **Angle 1: Competitor content gaps (agent-driven competitor analysis)**
    - Read existing competitor top pages exports in `docs/marketing/keywords/` (if any exist from prior runs). Extract non-branded keywords with volume > 50.
    - Use web search to analyze competitor blogs, product pages, and documentation for the 5 primary competitor domains (Notion, Obsidian, Elicit, Scite.ai, NotebookLM).
-   - Identify topics competitors cover that Atlas does not. Focus on non-branded keywords and content themes.
+   - Identify topics competitors cover that Acme does not. Focus on non-branded keywords and content themes.
    - Look for "vs" and "alternative" queries competitors rank for.
    - Extract keyword opportunities from competitor content analysis and feed into the seed pipeline.
    - This replaces the manual Ahrefs Competitor Top Pages session (which yielded mostly branded keywords with limited actionable discovery on the Starter plan's 25-row export cap).
@@ -461,7 +461,7 @@ This step uses `/content-strategy` and deep web research to discover high-potent
    - Look for niche audience segments (e.g., "for medical researchers", "for law students", "for journalists")
 
    **Angle 5: Adjacent topic expansion**
-   - Identify topics adjacent to Atlas's core pillars that could attract relevant traffic
+   - Identify topics adjacent to Acme's core pillars that could attract relevant traffic
    - Look for workflow-related keywords (e.g., "research workflow automation", "academic writing pipeline")
    - Explore cross-pillar opportunities (e.g., "mind map your literature review")
 
@@ -643,7 +643,7 @@ For EACH keyword, perform all of the following in a single pass. One CSV read at
 
 **5a. Assign Business Value (1-5)**
 
-Reason about each keyword's business value using the scoring rubric. Consider the keyword text, its funnel stage, search intent signals, and relevance to Atlas features. Record the score AND a one-sentence rationale.
+Reason about each keyword's business value using the scoring rubric. Consider the keyword text, its funnel stage, search intent signals, and relevance to Acme features. Record the score AND a one-sentence rationale.
 
 **Business Value Rubric (1-5):**
 
@@ -652,10 +652,10 @@ Reason about each keyword's business value using the scoring rubric. Consider th
 | **5** | Direct product search, competitor comparison, high buying intent | "notebooklm alternative", "second brain app", "best ai research tool" |
 | **4** | Solution-aware, evaluating tools in the category | "ai for literature review", "research paper organizer", "connected notes app" |
 | **3** | Problem-aware, seeking solutions but not yet tool-shopping | "how to organize research papers", "too many browser tabs research" |
-| **2** | Informational, tangentially relevant to Atlas domain | "how to write literature review", "what is zettelkasten" |
+| **2** | Informational, tangentially relevant to Acme domain | "how to write literature review", "what is zettelkasten" |
 | **1** | Broad awareness, only indirectly connected to knowledge work | "productivity tips for students", "best study habits" |
 
-**No heuristic auto-assign.** Every keyword gets prompt-based reasoning. Read the keyword, consider what a searcher wants, assess how directly Atlas solves that need, and assign a score with rationale.
+**No heuristic auto-assign.** Every keyword gets prompt-based reasoning. Read the keyword, consider what a searcher wants, assess how directly Acme solves that need, and assign a score with rationale.
 
 Set `business_value` (1-5) and `bv_rationale` (one-sentence justification).
 
@@ -815,7 +815,7 @@ For each keyword, create brief, map internal links, and register in CSV in a sin
 - What to avoid
 
 ### Top [N] [Category] (1,500-2,500 words)
-1. **Atlas** — [Atlas positioning: AI-powered knowledge workspace]
+1. **Acme** — [Acme positioning: AI-powered knowledge workspace]
    - Who it's for
    - Key strengths (4-5 bullet points)
    - Pricing
@@ -836,7 +836,7 @@ For each keyword, create brief, map internal links, and register in CSV in a sin
 ### Conclusion (100-150 words)
 - Summary
 - Recommendation
-- CTA to try Atlas
+- CTA to try Acme
 ```
 
 **Guide / How-to (content_type = `guide` or `how-to`):**
@@ -859,7 +859,7 @@ For each keyword, create brief, map internal links, and register in CSV in a sin
 - Step 2-N: [Same structure]
 
 ### Tools and Resources (300-400 words)
-- Atlas positioning
+- Acme positioning
 - Alternative tools
 
 ### Common Mistakes to Avoid (200-300 words)
@@ -872,12 +872,12 @@ For each keyword, create brief, map internal links, and register in CSV in a sin
 ### Conclusion (100-150 words)
 - Summary
 - Next steps
-- CTA to try Atlas
+- CTA to try Acme
 ```
 
 **Headline Formula Reference:**
 
-Use these formulas as starting points when crafting titles and H2 headings (the `/atlas-seo` skill has the full set):
+Use these formulas as starting points when crafting titles and H2 headings (the `/seo-content` skill has the full set):
 
 | # | Formula | Example |
 |---|---------|---------|
@@ -931,17 +931,17 @@ For each brief:
 
 **Output:** Published MDX files in `content/blog/`, all CSVs updated, local git commit.
 
-### Step 8: Generate MDX Posts (`/atlas-seo`)
+### Step 8: Generate MDX Posts (`/seo-content`)
 
 **Executor:** AGENT
 **Scope:** Every row in `content-briefs.csv` where `status` = `outline_approved`.
 **Action:**
 
-For each brief, generate a publication-ready blog post in a single pass using the `/atlas-seo` skill. Output goes directly to `content/blog/[slug].mdx` with full YAML frontmatter. No intermediate draft files.
+For each brief, generate a publication-ready blog post in a single pass using the `/seo-content` skill. Output goes directly to `content/blog/[slug].mdx` with full YAML frontmatter. No intermediate draft files.
 
 1. Read the brief file from `keywords/briefs/[brief_id].md`.
-2. Invoke `/atlas-seo` with the brief as input. The skill handles:
-   - Draft generation using the prompt template (see `/atlas-seo` SKILL.md Section 4)
+2. Invoke `/seo-content` with the brief as input. The skill handles:
+   - Draft generation using the prompt template (see `/seo-content` SKILL.md Section 4)
    - All 7 copy-editing sweep criteria applied during generation
    - Persuasion principles applied during generation
    - AI-avoidance rules enforced during generation
@@ -955,15 +955,15 @@ For each brief, generate a publication-ready blog post in a single pass using th
    - `brief_id`: from brief
    - `word_count`: actual word count
    - `ai_violations`: 0
-   - `skills_used`: "/atlas-seo"
+   - `skills_used`: "/seo-content"
    - `status`: `reviewed`
    - `date_published`: (empty — set in Step 11)
 5. **Update MEMORY_STATE.md immediately** after each post (this step is most likely to hit context limits).
 
 **CSV Update:** New rows in `blog-posts.csv` with `status` = `reviewed`.
-**Skill Call:** `/atlas-seo` per post. **⚠️ BLOCKING: The `/atlas-seo` skill MUST be invoked BEFORE generating any post content. Do NOT proceed with content generation until the skill has been loaded and the MEMORY_STATE.md skill checklist has been updated.**
+**Skill Call:** `/seo-content` per post. **⚠️ BLOCKING: The `/seo-content` skill MUST be invoked BEFORE generating any post content. Do NOT proceed with content generation until the skill has been loaded and the MEMORY_STATE.md skill checklist has been updated.**
 **Completion Condition:** All approved briefs have corresponding MDX files in `content/blog/` and `blog-posts.csv` entries with `status` = `reviewed`.
-**MEMORY_STATE Update:** **Critical — update after EACH post**, not just at step end. Record which posts are generated, which remain. Set `current_step: 8`, update skill checklist (Step 8 → /atlas-seo → YES).
+**MEMORY_STATE Update:** **Critical — update after EACH post**, not just at step end. Record which posts are generated, which remain. Set `current_step: 8`, update skill checklist (Step 8 → /seo-content → YES).
 
 ### Step 9: Internal Links (`/programmatic-seo`)
 
@@ -1212,7 +1212,7 @@ Consolidated reference of all validation checks. The actual validation logic is 
 |------|----------|-------|-------|--------|
 | A.0 | AGENT | `/content-strategy` + web search | Product context + competitor domains + pillars + exclusion list | New seed keywords (20+ across 3+ pillars) |
 | Step 6 | AGENT | web search (no skill) | Target keyword | SERP analysis + content strategy |
-| Step 8 | AGENT | `/atlas-seo` | Brief file | Publication-ready MDX with frontmatter |
+| Step 8 | AGENT | `/seo-content` | Brief file | Publication-ready MDX with frontmatter |
 | Step 9 | AGENT | `/programmatic-seo` | Post + cluster data | Internal linking plan |
 
 ### 9.2 Human Handoff Inventory
@@ -1282,7 +1282,7 @@ resume after autocompaction.
 
 | Step | Required Skill | Invoked? | Timestamp |
 |------|---------------|----------|-----------|
-| Step 8 | /atlas-seo | NO |           |
+| Step 8 | /seo-content | NO |           |
 | Step 9 | /programmatic-seo | NO |    |
 
 The agent MUST populate this table at the start of each step and mark "YES" with
@@ -1329,7 +1329,7 @@ Written in imperative form so the resuming agent can act immediately.]
 
 Example: "Completed MDX generation for 5 of 12 keywords. The remaining 7 keywords
 need posts generated per Step 8. Read each keyword's brief from keywords/briefs/
-and invoke /atlas-seo to generate directly to content/blog/[slug].mdx."
+and invoke /seo-content to generate directly to content/blog/[slug].mdx."
 ```
 
 ### 10.2 Update Protocol

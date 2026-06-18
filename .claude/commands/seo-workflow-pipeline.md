@@ -1,5 +1,5 @@
 ---
-description: atlas-seo-pipeline
+description: seo-content-pipeline
 ---
 ```mermaid
 flowchart TD
@@ -13,7 +13,7 @@ flowchart TD
     step5_prioritize[step5-prioritize]
     step6_serp_analysis[step6-serp-analysis]
     step7_create_briefs[step7-create-briefs]
-    step8_generate_mdx[[Skill: atlas-seo]]
+    step8_generate_mdx[[Skill: seo-content]]
     step9_internal_links[step9-internal-links]
     step10_validate[step10-validate]
     step11_commit[step11-commit]
@@ -49,9 +49,9 @@ Follow the Mermaid flowchart above to execute the workflow. Each node type has s
 
 ## Skill Nodes
 
-#### step8_generate_mdx(atlas-seo)
+#### step8_generate_mdx(seo-content)
 
-- **Prompt**: skill "atlas-seo" "For each brief in content-briefs.csv where status=outline_approved: 1) Read brief from keywords/briefs/[brief_id].md. 2) Generate publication-ready MDX with full YAML frontmatter. 3) Save to content/blog/[slug].mdx. 4) Add row to blog-posts.csv (status=reviewed). 5) Update MEMORY_STATE.md after EACH post. Check MEMORY_STATE.md items_remaining to skip completed posts."
+- **Prompt**: skill "seo-content" "For each brief in content-briefs.csv where status=outline_approved: 1) Read brief from keywords/briefs/[brief_id].md. 2) Generate publication-ready MDX with full YAML frontmatter. 3) Save to content/blog/[slug].mdx. 4) Add row to blog-posts.csv (status=reviewed). 5) Update MEMORY_STATE.md after EACH post. Check MEMORY_STATE.md items_remaining to skip completed posts."
 
 ### AskUserQuestion Node Details
 

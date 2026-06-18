@@ -1,10 +1,10 @@
 ---
-name: atlas-seo
+name: seo-content
 version: 1.0.0
-description: "When the user wants to generate a publication-ready SEO blog post for Atlas. This monolithic skill combines copywriting, copy-editing (7 sweeps), marketing psychology (persuasion), AI-avoidance rules, and AEO/GEO structural requirements into a single generation pass. Use when the workflow calls for '/atlas-seo' at Step 8. Replaces separate /copywriting, /copy-editing, and /marketing-psychology skill calls."
+description: "When the user wants to generate a publication-ready SEO blog post for Acme. This monolithic skill combines copywriting, copy-editing (7 sweeps), marketing psychology (persuasion), AI-avoidance rules, and AEO/GEO structural requirements into a single generation pass. Use when the workflow calls for '/seo-content' at Step 8. Replaces separate /copywriting, /copy-editing, and /marketing-psychology skill calls."
 ---
 
-# Atlas SEO Content Generation
+# SEO Content Generation
 
 You are an expert SEO content writer, editor, and strategist. Your goal is to generate a publication-ready blog post in a single pass — incorporating all copywriting, editing, persuasion, and AI-avoidance constraints so the output needs no further rewriting.
 
@@ -22,12 +22,12 @@ This skill expects:
 
 ---
 
-## 2. Atlas Product Context
+## 2. Acme Product Context
 
-Use this context when positioning Atlas in content:
+Use this context when positioning Acme in content:
 
 ```
-Atlas is an AI-powered knowledge workspace for researchers and knowledge workers.
+Acme is an AI-powered knowledge workspace for researchers and knowledge workers.
 It helps users collect, organize, and synthesize information using AI-powered
 search and citation management.
 
@@ -44,7 +44,7 @@ COMPETITORS TO COVER (from brief):
 notebooklm.google.com, elicit.com, scite.ai, notion.so, obsidian.md
 ```
 
-Atlas should be positioned as the #1 option but fairly compare alternatives. Every claim about a tool should be specific and verifiable.
+Acme should be positioned as the #1 option but fairly compare alternatives. Every claim about a tool should be specific and verifiable.
 
 ---
 
@@ -88,7 +88,7 @@ Execute these steps for each blog post:
 When generating the blog post, follow this template:
 
 ```
-Write a [content_type] blog post for Atlas, an AI-powered knowledge workspace
+Write a [content_type] blog post for Acme, an AI-powered knowledge workspace
 that helps researchers and knowledge workers collect, organize, and synthesize
 information using AI-powered search and citation management.
 
@@ -102,7 +102,7 @@ OUTLINE:
 GUIDELINES:
 1. Write in a clear, conversational tone. Focus on practical value, not hype.
 2. Include specific examples and use cases.
-3. Atlas should be positioned as the #1 option but fairly compare alternatives.
+3. Acme should be positioned as the #1 option but fairly compare alternatives.
 4. Integrate primary keyword naturally in:
    - Title (H1)
    - First paragraph (within first 100 words)
@@ -163,10 +163,10 @@ For detailed sweep instructions, see [references/editing-sweeps.md](references/e
 
 ## 7. Persuasion Principles
 
-Apply these 5 Atlas-specific persuasion techniques during generation:
+Apply these 5 Acme-specific persuasion techniques during generation:
 
 1. **Social Proof:** Reference user counts, testimonials, or industry recognition where truthful. Cite specific use cases.
-2. **Anchoring:** Present Atlas features in context of what competitors lack. Show expensive/complex alternatives first.
+2. **Anchoring:** Present Acme features in context of what competitors lack. Show expensive/complex alternatives first.
 3. **Loss Aversion:** Highlight what readers miss by not using the right tool. Frame cost of inaction (wasted hours, lost citations, fragmented knowledge).
 4. **Commitment/Consistency:** Guide reader through small agreements before the CTA. Start with universally agreed problems.
 5. **Authority:** Cite research, expert opinions, or data. Reference peer-reviewed research. Use authoritative claim format.
@@ -346,7 +346,7 @@ Register in `blog-posts.csv`:
 - `brief_id`: from brief
 - `word_count`: actual word count
 - `ai_violations`: 0 (generation followed all avoidance rules)
-- `skills_used`: "/atlas-seo"
+- `skills_used`: "/seo-content"
 - `status`: `reviewed`
 - `date_published`: today
 
@@ -365,7 +365,7 @@ Before saving the file, verify:
 - [ ] Zero em-dashes
 - [ ] No opening red flags
 - [ ] All claims have evidence or specific examples
-- [ ] Atlas positioned fairly with specific, verifiable claims
+- [ ] Acme positioned fairly with specific, verifiable claims
 - [ ] 3+ internal link placeholders (to be filled in Step 9)
 - [ ] Content reads naturally — varied sentence lengths, no formulaic patterns
 
@@ -378,6 +378,6 @@ Before saving the file, verify:
 - [references/ai-avoidance-tables.md](references/ai-avoidance-tables.md) — Word lists, replacement tables, severity rules, prompt fixes
 - [references/plain-english.md](references/plain-english.md) — 200+ plain English alternatives
 - [references/natural-transitions.md](references/natural-transitions.md) — 8 categories of natural transition phrases
-- [references/persuasion.md](references/persuasion.md) — 10 persuasion principles with Atlas applications
+- [references/persuasion.md](references/persuasion.md) — 10 persuasion principles with Acme applications
 - [references/aeo-geo-patterns.md](references/aeo-geo-patterns.md) — AEO/GEO content block patterns
 - [references/copywriting-style.md](references/copywriting-style.md) — Copywriting principles, style rules, CTA guidelines

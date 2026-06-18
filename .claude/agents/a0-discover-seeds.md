@@ -21,7 +21,7 @@ A.0.1 - Build exclusion list:
 - Compile complete exclusion list
 
 A.0.2 - Call /content-strategy with:
-- Atlas product context (AI knowledge workspace for researchers)
+- Acme product context (AI knowledge workspace for researchers)
 - 5 competitor domains: notebooklm.google.com, elicit.com, scite.ai, notion.so, obsidian.md
 - 4 content pillars: AI Research Tools, Second Brain & PKM, NotebookLM Alternatives, Visual Knowledge
 - The exclusion list

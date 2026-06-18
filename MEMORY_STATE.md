@@ -38,7 +38,7 @@ remaining: 0
 
 | Step | Required Skill | Invoked? | Timestamp |
 |------|---------------|----------|-----------|
-| Step 8 | /atlas-seo | NO |           |
+| Step 8 | /seo-content | NO |           |
 | Step 9 | /programmatic-seo | NO |    |
 
 ## Pillar Balance Snapshot (updated in A.0.0)
@@ -76,7 +76,7 @@ None.
 
 ## Context for Next Agent
 
-This is a fresh workflow run (run-2026-02-11-v2) using WORKFLOW.md v3.0 (11 steps across 4 phases). The previous run (run-2026-02-11) completed all phases and published 11 new blog posts. 12 deferred keywords remain in keywords-validated.csv with status=deferred. Begin at Step A.0 (A.0.0 pillar balance assessment first). Read WORKFLOW.md Section 0.7 (Step Execution Preamble) before executing any step. Content generation now uses `/atlas-seo` skill (Step 8) outputting directly to content/blog/[slug].mdx with no intermediate drafts.
+This is a fresh workflow run (run-2026-02-11-v2) using WORKFLOW.md v3.0 (11 steps across 4 phases). The previous run (run-2026-02-11) completed all phases and published 11 new blog posts. 12 deferred keywords remain in keywords-validated.csv with status=deferred. Begin at Step A.0 (A.0.0 pillar balance assessment first). Read WORKFLOW.md Section 0.7 (Step Execution Preamble) before executing any step. Content generation now uses `/seo-content` skill (Step 8) outputting directly to content/blog/[slug].mdx with no intermediate drafts.
 
 ---
 

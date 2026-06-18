@@ -1,6 +1,6 @@
-# Atlas SEO Content Pipeline
+# SEO Content Pipeline
 
-Ahrefs-driven SEO content workflow for Atlas. Fully machine-executable.
+Ahrefs-driven SEO content workflow for Acme. Fully machine-executable.
 
 ## Quick Start
 
@@ -13,7 +13,7 @@ To run the workflow, provide both files as context:
 ## Project Structure
 
 ```
-.claude/agents/skills/atlas-seo.md   # SEO content generation skill (Step 8)
+.claude/agents/skills/seo-content.md   # SEO content generation skill (Step 8)
 WORKFLOW.md                           # Master runbook (11 steps, 4 phases)
 MEMORY_STATE.md                       # Execution checkpoint (resume state)
 docs/marketing/data/                  # CSV trackers (8 files)
@@ -24,7 +24,7 @@ docs/marketing/keywords/briefs/       # Content brief files
 
 | Skill | Location | Used At |
 |-------|----------|---------|
-| `/atlas-seo` | `.claude/agents/skills/atlas-seo.md` | Step 8: Generate MDX posts |
+| `/seo-content` | `.claude/agents/skills/seo-content.md` | Step 8: Generate MDX posts |
 | `/content-strategy` | (external) | Step A.0: Seed keyword discovery |
 | `/programmatic-seo` | (external) | Step 9: Internal linking |
 
